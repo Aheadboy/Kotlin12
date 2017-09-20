@@ -1,0 +1,208 @@
+<All>
+    <field ID="2" name="主账号" description="用户主账号，即从磁条卡的第二磁道或第三磁道上获取的账号，或在交易时输入的主账户号，或读
+IC卡获得的卡号。该账号最多19个数字字符。长度值最大不能超过19。" isFixLength="false" isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="1"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="10"></FieldAtom>
+    </field>
+    <field ID="3" name="交易处理码" description="交易处理码(Transaction Processing Code)由六位数字组成。第1和第2位表示交易类别。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="3"></FieldAtom>
+    </field>
+    <field ID="4" name="交易金额" description="交易金额，交易金额不包括任何手续费。交易金额的币种由域49—交易币种(Currency Code Of Transaction)表示。若为人民币则交易金额的单
+位是人民币的分。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="6"></FieldAtom>
+    </field>
+    <field ID="11" name="流水号" description="POS流水号也作为交易凭证号" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="3"></FieldAtom>
+    </field>
+    <field ID="12" name="受卡方所在地时间" description="交易发生时，受卡方所在地时间。格式为hhmmss，其中hh为小时， mm为分， ss为秒。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="3"></FieldAtom>
+    </field>
+    <field ID="13" name="受卡方所在地日期" description="交易发生时，受卡方所在地日期。格式为MMDD，其中MM为月份， DD为日。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="2"></FieldAtom>
+    </field>
+    <field ID="14" name="卡有效期" description="银行卡的有效期。格式为YYMM，其中YY为年份， MM为月份。 对于IC卡，取自tag5F24（应用失效日期） 。"
+           isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="2"></FieldAtom>
+    </field>
+    <field ID="15" name="清算日期" description="POS中心和发卡方之间的交易结算日期。格式为MMDD，其中MM为月份， DD为日。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="2"></FieldAtom>
+    </field>
+    <field ID="22" name="服务点输入方式码" description="服务点输入方式码， 即持卡人数据（如主账户和个人标识码)的输入方式。服务点(Point Of Service)是指交易的各种始发场合。"
+           isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="2"></FieldAtom>
+    </field>
+    <field ID="23" name="卡序列号" description="IC卡的序列号。用于区别具有相同PAN的不同卡。只在IC卡交易时使用。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="2"></FieldAtom>
+    </field>
+    <field ID="25" name="服务点条件码" description="服务点条件码，用于和其他关键域来决定消息种类" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="1"></FieldAtom>
+    </field>
+
+    <field ID="26" name="服务点 PIN 获取码" description="服务点设备所允许输入的个人密码明文的最大长度。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="1"></FieldAtom>
+    </field>
+
+    <field ID="32" name="受理机构标识码" description="受理机构标识码,目前用八位数字来标识一个机构，故若此域的长度值不等于8则被认为消息格式出错" isFixLength="false"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="1"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="6"></FieldAtom>
+    </field>
+
+    <field ID="35" name="2 磁道数据" description="用户磁条卡上的第二磁道数据。二磁必须出现。注意手机芯片消费" isFixLength="false"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="1"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="19"></FieldAtom>
+    </field>
+
+    <field ID="36" name="3 磁道数据" description="用户磁条卡上的第三磁道数据。注意手机芯片消费" isFixLength="false"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="2"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="52"></FieldAtom>
+    </field>
+
+    <field ID="37" name="检索参考号" description="POS中心为交易分配的流水号，在应答报文中下传给POS终端作为对账参考号， 并用于事后查证。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="ASC" maxL="12"></FieldAtom>
+    </field>
+
+    <field ID="38" name="授权标识应答码" description="发卡方给予被批准交易的授权号，或 CUPS 在对交易进行代授权时产生的代授权号。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="ASC" maxL="6"></FieldAtom>
+    </field>
+
+    <field ID="39" name="应答码" description="POS中心返回给POS终端的应答码。应答码可以是发卡方、 CUPS或POS中心产生的。POS终端上送的冲正通知中表明冲正原因。"
+           isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="ASC" maxL="2"></FieldAtom>
+    </field>
+
+    <field ID="41" name="受卡机终端标识码" description="POS终端的标识码。该标识码在POS中心的网络中唯一标识一个终端，不能重复。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="ASC" maxL="8"></FieldAtom>
+    </field>
+
+    <field ID="42" name="受卡方标识码" description="受卡方的标识码，即商户代码" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="ASC" maxL="15"></FieldAtom>
+    </field>
+
+    <field ID="44" name="附加响应数据" description="服务点条件码，用于和其他关键域来决定消息种类" isFixLength="false"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="1"></FieldAtom>
+        <FieldAtom ID="Body" codeType="ASC" maxL="25"></FieldAtom>
+    </field>
+
+    <field ID="48" name="附加数据－私有" description="私有，用于存放POS批结算时的结算总额、批上送时的交易明细和交易明细总笔数。" isFixLength="false"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="2"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="161"></FieldAtom>
+    </field>
+
+    <field ID="49" name="交易货币代码" description="人民币的货币代码为156。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="ASC" maxL="3"></FieldAtom>
+    </field>
+
+    <field ID="52" name="PIN" description="持卡人的个人密码的密文.本系统允许的PIN长度最大为12位数字。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="Binary" maxL="8"></FieldAtom>
+    </field>
+
+    <field ID="53" name="安全控制信息" description="在交易类消息中，该域用于标识PIN和磁道信息加密的类型。" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="8"></FieldAtom>
+    </field>
+
+    <field ID="54" name="余额" description="查询交易响应消息中表示持卡人的账户可用余额" isFixLength="false"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="2"></FieldAtom>
+        <FieldAtom ID="Body" codeType="ASC" maxL="20"></FieldAtom>
+    </field>
+
+    <field ID="55" name="IC 卡数据域" description="" isFixLength="false"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="2"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="-1"></FieldAtom>
+    </field>
+
+    <field ID="58" name="PBOC 电子钱包标准的交易信息" description="本域只支持电子钱包的应用" isFixLength="false"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="2"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="-1"></FieldAtom>
+    </field>
+
+    <field ID="60" name="自定义域" description="
+    —— 数据元长度 N3—— 60.1 消息类型码 N2—— 60.2 批次号 N6—— 60.3 网络管理信息码 N3—— 60.4 终端读取能力 N1
+    —— 60.5 基于 PBOC 借/贷记标准的 IC 卡条件代码 N1—— 60.6 支持部分扣款和返回余额标志 N1—— 60.7 账户类型 N3" isFixLength="false"
+           isReserved="true">
+        <FieldAtom ID="Head" codeType="BCD" maxL="2"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="9"></FieldAtom>
+    </field>
+
+    <field ID="61" name="原始信息域" description="该域为自定义域，表示原始交易的信息。该域划分成五个子域，格式定义如下：
+—— 数据元长度 N3
+—— 61.1 原始交易批次号 N6
+—— 61.2 原始交易 POS 流水号 N6
+—— 61.3 原始交易日期 N4
+—— 61.4 原交易授权方式 N2
+—— 61.5 原交易授权机构代码 N11" isFixLength="false"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="2"></FieldAtom>
+        <FieldAtom ID="Body" codeType="BCD" maxL="15"></FieldAtom>
+    </field>
+
+
+    <field ID="62" name="终端秘钥" description="POS中心向POS终端约定的新工作密钥，若长度域不为024或040或056或060或84，将认为该域格式
+有误。" isFixLength="false" isReserved="true">
+        <FieldAtom ID="Head" codeType="BCD" maxL="2"></FieldAtom>
+        <FieldAtom ID="Body" codeType="Binary" maxL="84"></FieldAtom>
+    </field>
+
+
+    <field ID="63" name="自定义域" description="该域为自定义域，划分成两个子域，格式定义如下：
+—— 数据元长度 N3
+—— 63.1 自定义域 1AN3
+—— 63.2 自定义域 2ANS…120（LLLVAR）" isFixLength="false"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="2"></FieldAtom>
+        <FieldAtom ID="Body" codeType="ASC" maxL="163"></FieldAtom>
+    </field>
+
+    <field ID="64" name="MAC" description="服务点条件码，用于和其他关键域来决定消息种类" isFixLength="true"
+           isReserved="false">
+        <FieldAtom ID="Head" codeType="BCD" maxL="0"></FieldAtom>
+        <FieldAtom ID="Body" codeType="Binary" maxL="8"></FieldAtom>
+    </field>
+
+
+</All>
